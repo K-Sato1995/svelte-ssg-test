@@ -1,9 +1,4 @@
-<script>
-  let textHello = "This is in Example.svelte";
-</script>
-
-<h1 class="greeting">Hello {textHello}</h1>
-<h2>Hello this is heading 2</h2>
+<h1 class="about">About</h1>
 <p>
   It is a long established fact that a reader will be distracted by the readable
   content of a page when looking at its layout. The point of using Lorem Ipsum
@@ -19,10 +14,10 @@
     console.log("Hello");
   }}>This is my button</button
 >
-<button id="hydrate">Hydrate</button>
+<a href="/">Home</a>
 
 <style>
-  .greeting {
+  .about {
     color: red;
   }
 </style>

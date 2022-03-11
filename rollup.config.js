@@ -30,11 +30,42 @@ function serve() {
 	};
 }
 
-export default {
+export default [
+	{
+    input: 'src/bundleClientOutput.js',
+    output: {
+      file: __dirname + '/public/build/bundleClientOutput.js',
+      format: 'esm',
+      name: 'about'
+    },
+		plugins: [
+			nodePolyfills(),
+			resolve({
+				browser: true,
+				dedupe: ['svelte']
+			}),
+		]		
+  },
+	{
+    input: 'src/aboutClientOutput.js',
+    output: {
+      file: __dirname + '/public/build/aboutClientOutput.js',
+      format: 'esm',
+      name: 'about'
+    },
+		plugins: [
+			nodePolyfills(),
+			resolve({
+				browser: true,
+				dedupe: ['svelte']
+			}),
+		]		
+  },
+	{
 	input: 'src/main.js',
 	output: {
 		sourcemap: true,
-		format: 'iife',
+		format: 'esm',
 		name: 'app',
 		file: 'public/build/bundle.js'
 	},
@@ -77,4 +108,4 @@ export default {
 	watch: {
 		clearScreen: false
 	}
-};
+}];

@@ -1,4 +1,4 @@
-const template = (head, html, css) => `
+const template = (head, html, css, name) => `
 <!doctype html>
 <html lang="en">
 
@@ -7,8 +7,16 @@ const template = (head, html, css) => `
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="stylesheet" type="text/css" href="build/bundle.css">
-  <script defer src="build/bundle.js"></script>
+  <script defer type="module" src="build/${name}ClientOutput.js"></script>
   ${head}
+
+  <script type="module">
+  import Component from './build/${name}ClientOutput.js'
+  new Component({
+    target: document.body,
+    hydrate: true,
+  });
+</script>
   <style>
   ${css}
   </style>
@@ -16,6 +24,7 @@ const template = (head, html, css) => `
 
 <body>
   ${html}
+  <a href="/">Home</a>
 </body>
 
 </html>`

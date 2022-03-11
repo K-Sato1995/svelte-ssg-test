@@ -34,6 +34,9 @@ function create_fragment(ctx) {
 	let t8;
 	let button1;
 	let t9;
+	let t10;
+	let a;
+	let t11;
 	let mounted;
 	let dispose;
 
@@ -54,6 +57,9 @@ function create_fragment(ctx) {
 			t8 = space();
 			button1 = element("button");
 			t9 = text("Hydrate");
+			t10 = space();
+			a = element("a");
+			t11 = text("Home");
 			this.h();
 		},
 		l(nodes) {
@@ -82,11 +88,17 @@ function create_fragment(ctx) {
 			var button1_nodes = children(button1);
 			t9 = claim_text(button1_nodes, "Hydrate");
 			button1_nodes.forEach(detach);
+			t10 = claim_space(nodes);
+			a = claim_element(nodes, "A", { href: true });
+			var a_nodes = children(a);
+			t11 = claim_text(a_nodes, "Home");
+			a_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
 			attr(h1, "class", "greeting svelte-9led3h");
 			attr(button1, "id", "hydrate");
+			attr(a, "href", "/");
 		},
 		m(target, anchor) {
 			insert_hydration(target, h1, anchor);
@@ -104,6 +116,9 @@ function create_fragment(ctx) {
 			insert_hydration(target, t8, anchor);
 			insert_hydration(target, button1, anchor);
 			append_hydration(button1, t9);
+			insert_hydration(target, t10, anchor);
+			insert_hydration(target, a, anchor);
+			append_hydration(a, t11);
 
 			if (!mounted) {
 				dispose = listen(button0, "click", /*click_handler*/ ctx[0]);
@@ -123,6 +138,8 @@ function create_fragment(ctx) {
 			if (detaching) detach(button0);
 			if (detaching) detach(t8);
 			if (detaching) detach(button1);
+			if (detaching) detach(t10);
+			if (detaching) detach(a);
 			mounted = false;
 			dispose();
 		}
