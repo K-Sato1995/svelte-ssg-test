@@ -1,13 +1,16 @@
 const { default: ClientComponent } =  require('./clientOutput.js')
 
 
-const app = new ClientComponent({
-	target: document.body,
-	hydrate: true,
-	props: {
-		textHello: 'world'
-	}
-});
+document.querySelector('#hydrate').addEventListener('click', () => {
+	console.log("Hydrated")
+	const app = new ClientComponent({
+		target: document.body,
+		hydrate: true,
+		props: {
+			textHello: 'world'
+		}
+	});
+})
 
 
-exports.default = app;
+// exports.default = app;

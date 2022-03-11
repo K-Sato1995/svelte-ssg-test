@@ -23,7 +23,7 @@ const { default: template } =  require('./template.js')
 
 // const { default: ClientComponent } =  require('./clientOutput.js')
 
-// fs.writeFileSync('./public/index.html', template(head, html))
+fs.writeFileSync('./public/index.html', template(head, html))
 
 
 // console.log("hello")
