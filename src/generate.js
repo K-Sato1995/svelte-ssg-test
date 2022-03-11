@@ -21,19 +21,5 @@ const { html, head, css } = ssrComponent.render({textHello: "World"})
 
 const { default: template } =  require('./template.js')
 
-// const { default: ClientComponent } =  require('./clientOutput.js')
 
-fs.writeFileSync('./public/index.html', template(head, html))
-
-
-// console.log("hello")
-// const app = new ClientComponent({
-// 	target: document.body,
-// 	hydrate: true,
-// 	props: {
-// 		textHello: 'world'
-// 	}
-// });
-
-
-// exports.default = app;
+fs.writeFileSync('./public/index.html', template(head, html, css.code))

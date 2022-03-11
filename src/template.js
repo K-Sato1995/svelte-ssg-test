@@ -1,4 +1,4 @@
-const template = (head, html) => `
+const template = (head, html, css) => `
 <!doctype html>
 <html lang="en">
 
@@ -9,6 +9,9 @@ const template = (head, html) => `
   <link rel="stylesheet" type="text/css" href="build/bundle.css">
   <script defer src="build/bundle.js"></script>
   ${head}
+  <style>
+  ${css}
+  </style>
 </head>
 
 <body>
