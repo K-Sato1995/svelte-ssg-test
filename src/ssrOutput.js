@@ -5,10 +5,10 @@ const { create_ssr_component, escape } = require("svelte/internal");
 
 const css = {
 	code: ".greeting.svelte-9led3h{color:red}",
-	map: "{\"version\":3,\"file\":null,\"sources\":[null],\"sourcesContent\":[\"<script>\\n  let textHello = \\\"word\\\";\\n</script>\\n\\n<h1 class=\\\"greeting\\\">Hello {textHello}</h1>\\n<h2>Hello this is heading 2</h2>\\n<p>\\n  It is a long established fact that a reader will be distracted by the readable\\n  content of a page when looking at its layout. The point of using Lorem Ipsum\\n  is that it has a more-or-less normal distribution of letters, as opposed to\\n  using 'Content here, content here', making it look like readable English. Many\\n  desktop publishing packages and web page editors now use Lorem Ipsum as their\\n  default model text, and a search for 'lorem ipsum' will uncover many web sites\\n  still in their infancy. Various versions have evolved over the years,\\n  sometimes by accident, sometimes on purpose (injected humour and the like).\\n</p>\\n<button\\n  on:click={() => {\\n    console.log(\\\"Hello\\\");\\n  }}>This is my button</button\\n>\\n\\n<style>\\n  .greeting {\\n    color: red;\\n  }\\n</style>\\n\"],\"names\":[],\"mappings\":\"AAuBE,SAAS,cAAC,CAAC,AACT,KAAK,CAAE,GAAG,AACZ,CAAC\"}"
+	map: "{\"version\":3,\"file\":null,\"sources\":[null],\"sourcesContent\":[\"<script>\\n  let textHello = \\\"This is in Example.svelte\\\";\\n</script>\\n\\n<h1 class=\\\"greeting\\\">Hello {textHello}</h1>\\n<h2>Hello this is heading 2</h2>\\n<p>\\n  It is a long established fact that a reader will be distracted by the readable\\n  content of a page when looking at its layout. The point of using Lorem Ipsum\\n  is that it has a more-or-less normal distribution of letters, as opposed to\\n  using 'Content here, content here', making it look like readable English. Many\\n  desktop publishing packages and web page editors now use Lorem Ipsum as their\\n  default model text, and a search for 'lorem ipsum' will uncover many web sites\\n  still in their infancy. Various versions have evolved over the years,\\n  sometimes by accident, sometimes on purpose (injected humour and the like).\\n</p>\\n<button\\n  on:click={() => {\\n    console.log(\\\"Hello\\\");\\n  }}>This is my button</button\\n>\\n<button id=\\\"hydrate\\\">Hydrate</button>\\n\\n<style>\\n  .greeting {\\n    color: red;\\n  }\\n</style>\\n\"],\"names\":[],\"mappings\":\"AAwBE,SAAS,cAAC,CAAC,AACT,KAAK,CAAE,GAAG,AACZ,CAAC\"}"
 };
 
-let textHello = "word";
+let textHello = "This is in Example.svelte";
 
 const Component = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 	$$result.css.add(css);
@@ -24,7 +24,8 @@ const Component = create_ssr_component(($$result, $$props, $$bindings, slots) =>
   still in their infancy. Various versions have evolved over the years,
   sometimes by accident, sometimes on purpose (injected humour and the like).
 </p>
-<button>This is my button</button>`;
+<button>This is my button</button>
+<button id="${"hydrate"}">Hydrate</button>`;
 });
 
 exports.default = Component;

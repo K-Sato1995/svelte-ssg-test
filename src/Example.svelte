@@ -1,5 +1,5 @@
 <script>
-  let textHello = "word";
+  let textHello = "This is in Example.svelte";
 </script>
 
 <h1 class="greeting">Hello {textHello}</h1>
@@ -19,6 +19,7 @@
     console.log("Hello");
   }}>This is my button</button
 >
+<button id="hydrate">Hydrate</button>
 
 <style>
   .greeting {

@@ -29,8 +29,11 @@ function create_fragment(ctx) {
 	let p;
 	let t5;
 	let t6;
-	let button;
+	let button0;
 	let t7;
+	let t8;
+	let button1;
+	let t9;
 	let mounted;
 	let dispose;
 
@@ -46,8 +49,11 @@ function create_fragment(ctx) {
 			p = element("p");
 			t5 = text("It is a long established fact that a reader will be distracted by the readable\n  content of a page when looking at its layout. The point of using Lorem Ipsum\n  is that it has a more-or-less normal distribution of letters, as opposed to\n  using 'Content here, content here', making it look like readable English. Many\n  desktop publishing packages and web page editors now use Lorem Ipsum as their\n  default model text, and a search for 'lorem ipsum' will uncover many web sites\n  still in their infancy. Various versions have evolved over the years,\n  sometimes by accident, sometimes on purpose (injected humour and the like).");
 			t6 = space();
-			button = element("button");
+			button0 = element("button");
 			t7 = text("This is my button");
+			t8 = space();
+			button1 = element("button");
+			t9 = text("Hydrate");
 			this.h();
 		},
 		l(nodes) {
@@ -67,14 +73,20 @@ function create_fragment(ctx) {
 			t5 = claim_text(p_nodes, "It is a long established fact that a reader will be distracted by the readable\n  content of a page when looking at its layout. The point of using Lorem Ipsum\n  is that it has a more-or-less normal distribution of letters, as opposed to\n  using 'Content here, content here', making it look like readable English. Many\n  desktop publishing packages and web page editors now use Lorem Ipsum as their\n  default model text, and a search for 'lorem ipsum' will uncover many web sites\n  still in their infancy. Various versions have evolved over the years,\n  sometimes by accident, sometimes on purpose (injected humour and the like).");
 			p_nodes.forEach(detach);
 			t6 = claim_space(nodes);
-			button = claim_element(nodes, "BUTTON", {});
-			var button_nodes = children(button);
-			t7 = claim_text(button_nodes, "This is my button");
-			button_nodes.forEach(detach);
+			button0 = claim_element(nodes, "BUTTON", {});
+			var button0_nodes = children(button0);
+			t7 = claim_text(button0_nodes, "This is my button");
+			button0_nodes.forEach(detach);
+			t8 = claim_space(nodes);
+			button1 = claim_element(nodes, "BUTTON", { id: true });
+			var button1_nodes = children(button1);
+			t9 = claim_text(button1_nodes, "Hydrate");
+			button1_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
 			attr(h1, "class", "greeting svelte-9led3h");
+			attr(button1, "id", "hydrate");
 		},
 		m(target, anchor) {
 			insert_hydration(target, h1, anchor);
@@ -87,11 +99,14 @@ function create_fragment(ctx) {
 			insert_hydration(target, p, anchor);
 			append_hydration(p, t5);
 			insert_hydration(target, t6, anchor);
-			insert_hydration(target, button, anchor);
-			append_hydration(button, t7);
+			insert_hydration(target, button0, anchor);
+			append_hydration(button0, t7);
+			insert_hydration(target, t8, anchor);
+			insert_hydration(target, button1, anchor);
+			append_hydration(button1, t9);
 
 			if (!mounted) {
-				dispose = listen(button, "click", /*click_handler*/ ctx[0]);
+				dispose = listen(button0, "click", /*click_handler*/ ctx[0]);
 				mounted = true;
 			}
 		},
@@ -105,14 +120,16 @@ function create_fragment(ctx) {
 			if (detaching) detach(t4);
 			if (detaching) detach(p);
 			if (detaching) detach(t6);
-			if (detaching) detach(button);
+			if (detaching) detach(button0);
+			if (detaching) detach(t8);
+			if (detaching) detach(button1);
 			mounted = false;
 			dispose();
 		}
 	};
 }
 
-let textHello = "word";
+let textHello = "This is in Example.svelte";
 
 function instance($$self) {
 	const click_handler = () => {
